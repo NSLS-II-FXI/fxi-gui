@@ -1,6 +1,6 @@
 [run]
 source =
-    srx_gui
+    fxi_gui
 [report]
 omit =
     */python?.?/*
