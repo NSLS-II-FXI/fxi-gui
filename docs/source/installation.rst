@@ -4,4 +4,4 @@ Installation
 
 At the command line::
 
-    $ pip install srx-gui
+    $ pip install fxi-gui

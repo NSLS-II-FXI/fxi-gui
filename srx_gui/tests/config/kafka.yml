@@ -1,6 +1,0 @@
----
-  abort_run_on_kafka_exception: True
-  bootstrap_servers:
-    - localhost:9092
-  runengine_producer_config:
-      security.protocol: PLAINTEXT

@@ -2,8 +2,8 @@
 Usage
 =====
 
-Start by importing SRX GUI.
+Start by importing FXI GUI.
 
 .. code-block:: python
 
-    import srx_gui
+    import fxi_gui
