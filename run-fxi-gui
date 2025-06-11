@@ -1,0 +1,4 @@
+export PYTHONUSERBASE=/nsls2/data/fxi/shared/config/bluesky_overlays/2025-2.0-py311-tiled
+export PATH=/nsls2/data/fxi/shared/config/bluesky_overlays/2025-2.0-py311-tiled/bin:$PATH
+fxi-gui
+
