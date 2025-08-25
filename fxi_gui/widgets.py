@@ -4,6 +4,7 @@ Extendeding and supplementing the widgets import bluesky-widgets
 
 from qtpy.QtCore import Qt
 from qtpy.QtWidgets import QFrame, QHBoxLayout, QSplitter, QTabWidget, QVBoxLayout, QWidget
+from .widget_xafs import PlanEditorXafs
 
 from bluesky_widgets.qt.run_engine_client import (
     QtReConsoleMonitor,
@@ -117,6 +118,20 @@ class QtRunEngineManager_Editor(QWidget):
         self.setLayout(vbox)
 
 
+class QtRunEngineManager_AnotherTab(QWidget):
+    def __init__(self, model, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.model = model
+
+        self._plan_editor = PlanEditorXafs(model)
+        self._plan_history = QtRePlanQueue(model)
+
+        vbox = QVBoxLayout()
+        vbox.addWidget(self._plan_editor, stretch=1)
+        vbox.addWidget(self._plan_history, stretch=1)
+        self.setLayout(vbox)
+
+
 class QtViewer(QTabWidget):
     def __init__(self, model, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -129,3 +144,6 @@ class QtViewer(QTabWidget):
 
         self._re_manager_editor = QtRunEngineManager_Editor(model.run_engine)
         self.addTab(self._re_manager_editor, "Edit and Control Queue")
+
+        self._re_manager_another_tab = QtRunEngineManager_AnotherTab(model.run_engine)
+        self.addTab(self._re_manager_another_tab, "Another Tab")
